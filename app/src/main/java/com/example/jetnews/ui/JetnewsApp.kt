@@ -63,6 +63,7 @@ fun JetnewsApp(
         val isExpandedScreen = widthSizeClass == WindowWidthSizeClass.Expanded
         val sizeAwareDrawerState = rememberSizeAwareDrawerState(isExpandedScreen)
 
+        //왼쪽에서 나오는 DRAWER, 사이즈 확장이 가능할때는 노출되지 않음
         ModalNavigationDrawer(
             drawerContent = {
                 AppDrawer(
@@ -77,7 +78,9 @@ fun JetnewsApp(
             gesturesEnabled = !isExpandedScreen
         ) {
             Row {
+                //KOR-레이아웃 확장이 가능할 경우
                 if (isExpandedScreen) {
+                    //KOR-큰 화면에서 나오는 NAV바
                     AppNavRail(
                         currentRoute = currentRoute,
                         navigateToHome = navigationActions.navigateToHome,
